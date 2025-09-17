@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mini Simple Pastebin</title>
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="./img/icon/fav.ico" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Mini Simple Pastebin</h1>
+      <h1>Mini Simple Pastebin</h1>
 
-        <div class="form-group">
-            <label for="code">Paste your code:</label>
-            <div class="language-select">
-              <label for="language">Programming language:</label>
-              <select id="language">
-                <option value="text">Text</option>
-                <option value="javascript">JavaScript</option>
-                <option value="html">HTML</option>
-                <option value="css">CSS</option>
-                <option value="python">Python</option>
-                <option value="java">Java</option>
-                <option value="php">PHP</option>
-                <option value="cpp">C++</option>
-                <option value="csharp">C#</option>
-                <option value="ruby">Ruby</option>
-                <option value="go">Go</option>
-                <option value="sql">SQL</option>
-              </select>
-            </div>
-            <textarea id="code" placeholder="Paste your code here..."></textarea>
+      <div class="form-group">
+        <label for="code">Paste your code:</label>
+        <div class="language-select">
+          <label for="language">Programming language:</label>
+          <select id="language">
+            <option value="text">Text</option>
+            <option value="javascript">JavaScript</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="php">PHP</option>
+            <option value="cpp">C++</option>
+            <option value="csharp">C#</option>
+            <option value="ruby">Ruby</option>
+            <option value="go">Go</option>
+            <option value="sql">SQL</option>
+          </select>
         </div>
+        <textarea id="code" placeholder="Paste your code here..."></textarea>
+      </div>
 
-        <button id="save-btn">
-            <span class="loader" id="loader" style="display: none;"></span>
-            <span id="btn-text">Save Code</span>
-        </button>
+      <button id="save-btn">
+        <span class="loader" id="loader" style="display: none"></span>
+        <span id="btn-text">Save Code</span>
+      </button>
 
-        <div class="error" id="error">
+      <div class="error" id="error">
         An error occurred while saving the code. Please try again.
-    </div>
+      </div>
 
-    <div class="result" id="result">
+      <div class="result" id="result">
         <p>Your shareable link:</p>
         <p class="link" id="share-link"></p>
         <button class="copy-btn" id="copy-btn">Copy Link</button>
-        <p style="margin-top: 10px; font-size: 14px; color: #6c757d;">
-            The code will be automatically deleted after 14 days
+        <p style="margin-top: 10px; font-size: 14px; color: #6c757d">
+          The code will be automatically deleted after 14 days
         </p>
+      </div>
     </div>
-</div>
 
-<div class="footer">
-    <p>Uses JSONbin.io for code storage • Code is automatically deleted after 2 weeks</p>
-</div>
+    <div class="footer">
+      <p>
+        Uses JSONbin.io for code storage • Code is automatically deleted after 2
+        weeks
+      </p>
+    </div>
 
-<div class="notification" id="notification">
-    Link copied to clipboard!
-</div>
+    <div class="notification" id="notification">Link copied to clipboard!</div>
     <script type="text/javascript" src="./js/main.js"></script>
-</body>
+  </body>
 </html>
