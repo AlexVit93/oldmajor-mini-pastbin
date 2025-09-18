@@ -6,6 +6,7 @@
   --text-color: #333;
   --light-gray: #e9ecef;
   --button-disable: #6c757d;
+  --button-shorten: #125075;
   --copy-btn: #28a745;
   --hover-copybtn: #218838;
   --error-color: #dc3545;
@@ -62,6 +63,10 @@ textarea {
   resize: vertical;
 }
 
+.textarea-container {
+  position: relative;
+}
+
 button {
   background-color: var(--primary-color);
   color: var(--clean-white);
@@ -98,6 +103,29 @@ button:disabled {
   color: var(--secondary-color);
 }
 
+.link-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.shorten-btn {
+  background-color: var(--secondary-color);
+  margin-bottom: 15px;
+}
+
+.shorten-btn:hover {
+  background-color: var(--button-shorten);
+}
+
+.short-link-container {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: var(--light-gray);
+  border-radius: var(--border-radius);
+}
+
 .copy-btn {
   background-color: var(--copy-btn);
   margin-left: 10px;
@@ -105,6 +133,24 @@ button:disabled {
 
 .copy-btn:hover {
   background-color: var(--hover-copybtn);
+}
+
+.copy-code-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--light-gray);
+  padding: 8px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  color: var(--primary-color);
+  z-index: 10;
+}
+
+.copy-code-btn:hover {
+  background: var(--clean-white);
+  color: var(--secondary-color);
 }
 
 .footer {

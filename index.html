@@ -6,31 +6,21 @@
     <title>Mini Simple Pastebin</title>
     <link rel="icon" type="image/x-icon" href="./img/icon/fav.ico" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="container">
       <h1>Mini Simple Pastebin</h1>
-
       <div class="form-group">
-        <label for="code">Paste your code:</label>
-        <div class="language-select">
-          <label for="language">Programming language:</label>
-          <select id="language">
-            <option value="text">Text</option>
-            <option value="javascript">JavaScript</option>
-            <option value="html">HTML</option>
-            <option value="css">CSS</option>
-            <option value="python">Python</option>
-            <option value="java">Java</option>
-            <option value="php">PHP</option>
-            <option value="cpp">C++</option>
-            <option value="csharp">C#</option>
-            <option value="ruby">Ruby</option>
-            <option value="go">Go</option>
-            <option value="sql">SQL</option>
-          </select>
+        <div class="textarea-container">
+          <textarea id="code" placeholder="Paste your code here..."></textarea>
+          <button class="copy-code-btn" id="copy-code-btn" title="Copy code">
+            <i class="fas fa-copy"></i>
+          </button>
         </div>
-        <textarea id="code" placeholder="Paste your code here..."></textarea>
       </div>
 
       <button id="save-btn">
@@ -44,8 +34,22 @@
 
       <div class="result" id="result">
         <p>Your shareable link:</p>
-        <p class="link" id="share-link"></p>
-        <button class="copy-btn" id="copy-btn">Copy Link</button>
+        <div class="link-container">
+          <p class="link" id="share-link"></p>
+          <button class="copy-btn" id="copy-btn">Copy Link</button>
+        </div>
+        <button class="shorten-btn" id="shorten-btn">Get Short Link</button>
+        <div
+          class="short-link-container"
+          id="short-link-container"
+          style="display: none"
+        >
+          <p>Short link:</p>
+          <div class="link-container">
+            <p class="link" id="short-link"></p>
+            <button class="copy-btn" id="copy-short-btn">Copy</button>
+          </div>
+        </div>
         <p style="margin-top: 10px; font-size: 14px; color: #6c757d">
           The code will be automatically deleted after 14 days
         </p>
