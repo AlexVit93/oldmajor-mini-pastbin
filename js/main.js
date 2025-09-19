@@ -106,17 +106,49 @@ document.addEventListener("DOMContentLoaded", function () {
     const url = shortLink.getAttribute("data-url");
     copyToClipboard(url);
   });
+  async function createTinyUrl(longUrl) {
+    try {
+      const response = await fetch(
+        `https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`
+      );
+      if (response.ok) {
+        return await response.text();
+      }
+      throw new Error("Failed to create short URL");
+    } catch (error) {
+      console.error("Error creating TinyURL:", error);
+      return null;
+    }
+  }
 
-  shortenBtn.addEventListener("click", function () {
-    const originalUrl = shareLink.getAttribute("data-url");
-    const hash = Math.random().toString(36).substring(2, 10);
-    const shortUrl = `https://psb.in/${hash}`;
+  shortenBtn.addEventListener("click", async function () {
+    try {
+      const originalUrl = shareLink.getAttribute("data-url");
+      const shortUrl = await createTinyUrl(originalUrl);
 
-    shortLink.textContent = shortUrl;
-    shortLink.setAttribute("data-url", shortUrl);
-    shortLinkContainer.style.display = "block";
-    showNotification("Short link created!");
+      if (shortUrl) {
+        shortLink.textContent = shortUrl;
+        shortLink.setAttribute("data-url", shortUrl);
+        shortLinkContainer.style.display = "block";
+        showNotification("Short link created!");
+      } else {
+        showNotification("Error creating short link", "error");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      showNotification("Error creating short link", "error");
+    }
   });
+  // shortenBtn.addEventListener("click", function () {
+  //   const originalUrl = shareLink.getAttribute("data-url");
+  //   const hash = Math.random().toString(36).substring(2, 10);
+  //   const shortUrl = `https://psb.in/${hash}`;
+
+  //   shortLink.textContent = shortUrl;
+  //   shortLink.setAttribute("data-url", shortUrl);
+  //   shortLinkContainer.style.display = "block";
+  //   showNotification("Short link created!");
+  // });
 
   function loadCode(id) {
     saveBtn.disabled = true;
