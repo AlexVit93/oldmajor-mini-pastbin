@@ -139,17 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
       showNotification("Error creating short link", "error");
     }
   });
-  // shortenBtn.addEventListener("click", function () {
-  //   const originalUrl = shareLink.getAttribute("data-url");
-  //   const hash = Math.random().toString(36).substring(2, 10);
-  //   const shortUrl = `https://psb.in/${hash}`;
-
-  //   shortLink.textContent = shortUrl;
-  //   shortLink.setAttribute("data-url", shortUrl);
-  //   shortLinkContainer.style.display = "block";
-  //   showNotification("Short link created!");
-  // });
-
   function loadCode(id) {
     saveBtn.disabled = true;
     loader.style.display = "inline-block";
